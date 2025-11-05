@@ -1,0 +1,67 @@
+public class Main extends JFrame{
+    JTextField tempinput,tempoutput;
+    ButtonListener buttonListener;
+    JLabel inputlabel,convertlabel,outputlabel,imagelabel;
+    JComboBox comboBox1, comboBox2;
+
+    public static void Main(String args[]){
+        Container c = getContentPane();
+        c.setLayout(null);
+        c.setBackground(Colour.White);
+        setTitle("Temperature converter");
+        setSize(400,300);
+        setVisible(true);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+        String s1[] = {'Celsius','Farenheit','Kelvin'};
+        comboBox1 = new JComboBox(s1);
+        comboBox1.setBounds(200,20,90,20);
+        add(comboBoX1);
+
+        String s2[] = {'Celsius','Farenheit','Kelvin'};
+        comboBox2 = new JComboBox(s2);
+        comboBox2.setBounds(200,20,90,20);
+        add(comboBox2);
+
+        inputlabel= new JLabel("Temperature:");
+        inputlabel.setFont(new Font("arial",Font.BOLD,14));
+        inputlabel.setSize(270,20);
+        inputlabel.setLocation(0,20);
+
+        convertlabel= new JLabel("Convert to:");
+        convertlabel.setFont(new Font("arial",Font.BOLD,14));
+        convertlabel.setSize(270,20);
+        convertlabel.setLocation(0,90);
+
+        tempinput= new JTextField(10);
+        tempinput.setSize(40,20);
+        tempinput.setLocation(120,20);
+
+        tempoutput = new JTextField(10);
+        tempoutput.seSize(120,20);
+        tempoutput.setLocation(90,190);
+
+        outputlabel = new JLabel("Output:");
+        outputlabel.setFont(new Font("arial",Font.BOLD,14));
+        outputlabel.setSize(270,20);
+        outputlabel.setLocation(0,190);
+
+        JButton button = new JButton("convert ");
+        button.setSize(80,30);
+        button.setLocation(130,130);
+        button.setBackground(Color.LIGHT_GRAY);
+        ButtonListener= new ButtonListener;
+        button.addActionListener(buttonListener);
+
+        imagelabel= new JLabel("");
+        imagelabel.setIcon( new ImageIcon('images.png'));
+        imagelabel.setBounds(190,30,438,200);
+
+        
+
+
+
+
+
+    }
+}
