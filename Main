@@ -57,7 +57,7 @@ public class Main extends JFrame {
         // Button
         JButton button = new JButton("Convert");
         button.setSize(100, 30);
-        button.setLocation(130, 130);
+        button.setLocation(80, 130);
         button.setBackground(Color.LIGHT_GRAY);
         buttonListener = new ButtonListener();
         button.addActionListener(buttonListener);
@@ -77,6 +77,10 @@ public class Main extends JFrame {
         c.add(comboBox1);
         c.add(comboBox2);
         c.add(imagelabel);
+
+        setVisible(true);
+        revalidate();
+        repaint();
     }
 
     private class ButtonListener implements ActionListener {
