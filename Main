@@ -4,7 +4,7 @@ public class Main extends JFrame{
     JLabel inputlabel,convertlabel,outputlabel,imagelabel;
     JComboBox comboBox1, comboBox2;
 
-    public static void Main(String args[]){
+    public void Main(){
         Container c = getContentPane();
         c.setLayout(null);
         c.setBackground(Colour.White);
@@ -16,7 +16,7 @@ public class Main extends JFrame{
         String s1[] = {'Celsius','Farenheit','Kelvin'};
         comboBox1 = new JComboBox(s1);
         comboBox1.setBounds(200,20,90,20);
-        add(comboBoX1);
+        add(comboBox1);
 
         String s2[] = {'Celsius','Farenheit','Kelvin'};
         comboBox2 = new JComboBox(s2);
@@ -57,11 +57,59 @@ public class Main extends JFrame{
         imagelabel.setIcon( new ImageIcon('images.png'));
         imagelabel.setBounds(190,30,438,200);
 
-        
+        c.add(outputlabel);
+        c.add(convertlabel);
+        c.add(inputlabel);
+        c.add(tempinput);
+        c.add(tempoutput);
+        c.add(button);
+        c.add(comboBox1);
+        c.add(imagelabel);
+        tempoutput.setEditable(false);
+    }
 
-
-
-
-
+    private class ButtonListener implements ActionListener{
+        public void actionPerformed(ActionEvent e){
+            String temp = (String) comboBox1.getSelectedItem();
+            String tempConvert= (String) comboBox1.getSelectedItem();
+            
+            if (temp.equals("Celsius")&& tempConvert.equals("Farenheit")){
+                double c = Double.parseDouble(tempinput.getText());
+                double f=(double)(c*1.8+32);
+                tempoutput.setText(String.valueOf(f));
+            }else if (temp.equals("Celsius")&& tempConvert.equals("Kelvin")){
+                double c = Double.parseDouble(tempinput.getText());
+                double k=(double)(c+273);
+                tempoutput.setText(String.valueOf(k));
+            }else if(temp.equals("Celsius")&& tempConvert.equals("Celsius")){
+                double c = Double.parseDouble(tempinput.getText());
+                tempoutput.setText(String.valueOf(c));
+            }if (temp.equals("Farenheit")&& tempConvert.equals("Celsius")){
+                double f = Double.parseDouble(tempinput.getText());
+                double c = (double)((f-32)*5/9);
+                tempoutput.setText(String.valueOf(c));
+            }else if(temp.equals("Farenheit")&& tempConvert.equals("Kelvin")){
+                double f = Double.parseDouble(tempinput.getText());
+                double k = (double)((f-32)*5/9+273.15);
+                tempoutput.setText(String.valueOf(k));
+            }else if (temp.equals("Celsius")&& tempConvert.equals("Celsius")){
+                double f = Double.parseDouble(tempinput.getText());
+                tempoutput.setText(String.valueOf(f));
+            }if (temp.equals("Kelvin")&& tempConvert.equals("Farenheit")){
+                double k = Double.parseDouble(tempinput.getText());
+                double f=(double)((k*(9/5))-459.67);
+                tempoutput.setText(String.valueOf(f));
+            }else if (temp.equals("Kelvin")&& tempConvert.equals("Celsius")){
+                double k = Double.parseDouble(tempinput.getText());
+                double c=(double)(k-273);
+                tempoutput.setText(String.valueOf(c));
+            }else if(temp.equals("Kelvin")&& tempConvert.equals("Kelvin")){
+                double k = Double.parseDouble(tempinput.getText());
+                tempoutput.setText(String.valueOf(k));
+            }
+        }
+    }
+    public static void main (String[] args){
+        new Main();
     }
 }
